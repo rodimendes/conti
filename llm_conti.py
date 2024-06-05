@@ -5,7 +5,7 @@ import torch
 from transformers import pipeline
 
 def ask_model(prompt, model, max_tokens=100):
-   
+
     start_time = time.time()
 
     generate_text = pipeline(
@@ -29,10 +29,10 @@ def ask_model(prompt, model, max_tokens=100):
 if __name__ == "__main__":
 
     # available_models = ["databricks/dolly-v2-7b"]
-    available_models = ["databricks/dolly-v2-3b"]
+    available_models = ["databricks/dolly-v2-7b"]
     
     demo = gr.Interface(fn=ask_model, 
-                        inputs=["text", gr.Dropdown(available_models, label="model", value="databricks/dolly-v2-3b")], 
+                        inputs=["text", gr.Dropdown(available_models, label="model", value="databricks/dolly-v2-7b")], 
                         outputs=["text", "number"],
                         title="ContiGPT")
     demo.launch(share=True)
